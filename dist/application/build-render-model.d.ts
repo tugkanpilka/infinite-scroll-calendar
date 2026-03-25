@@ -1,4 +1,4 @@
-import type { Section } from '@docbook/date-grid';
+import type { Section } from 'date-grid';
 import type { CalendarMetadataMap, CalendarRenderModel, CalendarValue } from '../types';
 export declare function buildRenderModel(params: {
     data: Section<Date, {

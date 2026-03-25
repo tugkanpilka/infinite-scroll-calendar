@@ -7,7 +7,7 @@ import {
   fillAdjacentDays,
   groupByMonth,
   splitRows,
-} from '@docbook/date-grid';
+} from 'date-grid';
 
 import Calendar from './root';
 

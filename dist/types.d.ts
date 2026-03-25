@@ -1,4 +1,4 @@
-import type { Section, WeekNumberMeta } from '@docbook/date-grid';
+import type { Section, WeekNumberMeta } from 'date-grid';
 export type CalendarValue = {
     kind: 'day';
     key: string;

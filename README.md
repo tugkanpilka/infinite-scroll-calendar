@@ -1,17 +1,17 @@
-# @docbook/calendar
+# infinite-scroll-calendar
 
-React calendar component built on top of `@docbook/date-grid`.
+React calendar component built on top of `date-grid`.
 
 ## Install
 
 ```bash
-npm install @docbook/calendar @docbook/date-grid
+npm install infinite-scroll-calendar date-grid
 ```
 
 ## Usage
 
 ```tsx
-import { Calendar } from '@docbook/calendar';
+import { Calendar } from 'infinite-scroll-calendar';
 
 <Calendar
   data={sections}

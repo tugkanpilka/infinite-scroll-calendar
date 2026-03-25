@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import type { Cell, Section } from '@docbook/date-grid';
+import type { Cell, Section } from 'date-grid';
 
 import { buildVisualState } from './build-visual-state';
 import { splitVisibleRows } from './split-visible-rows';
