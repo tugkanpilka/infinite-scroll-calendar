@@ -1,0 +1,53 @@
+{
+  "name": "@docbook/calendar",
+  "version": "0.0.1",
+  "description": "Standalone React calendar package for Docbook",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/style.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "yarn build:types && yarn build:js",
+    "build:js": "vite build --config vite.config.ts",
+    "build:types": "tsc -p tsconfig.build.json",
+    "test": "vitest run src/root.test.tsx src/application/build-render-model.test.ts"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@docbook/date-grid": "^0.0.1",
+    "date-fns": "^4.1.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.11",
+    "@types/react-dom": "^19.0.4",
+    "jsdom": "^25.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.92.1",
+    "typescript": "^5.8.2",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.5"
+  }
+}

@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.section {
+  padding: 0.25rem 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto repeat(7, minmax(0, 1fr));
+  gap: 0.25rem;
+}

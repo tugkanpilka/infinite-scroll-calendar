@@ -1,0 +1,12 @@
+.root {
+  border: 0;
+  background: transparent;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.root[data-selected='true'] {
+  color: #0b57d0;
+}

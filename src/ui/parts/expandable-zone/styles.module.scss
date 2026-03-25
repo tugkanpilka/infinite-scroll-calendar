@@ -1,0 +1,7 @@
+.root {
+  overflow: hidden;
+}
+
+.root[data-expanded='false'] {
+  display: none;
+}
