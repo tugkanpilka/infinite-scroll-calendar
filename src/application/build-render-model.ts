@@ -66,6 +66,7 @@ function mapRow(
       value: cell.dayKey,
       date: cell.date,
       today: visualState.today,
+      past: visualState.past,
       selected: visualState.selected,
       outside: !cell.inMonth,
       indicator: visualState.indicator,

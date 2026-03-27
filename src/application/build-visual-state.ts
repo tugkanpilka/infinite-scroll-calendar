@@ -20,6 +20,11 @@ export interface CalendarVisualState {
   indicator: CalendarIndicator;
   selected: boolean;
   today: boolean;
+  past: boolean;
+}
+
+function stripTime(d: Date): number {
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
 }
 
 export function buildVisualState(
@@ -35,7 +40,9 @@ export function buildVisualState(
   } = params;
   const selected = selectionEnabled && value.key === key;
   const today = !!date && isToday(date);
+  const past =
+    !!date && !outside && !today && stripTime(date) < stripTime(new Date());
   const indicator = outside ? false : resolveIndicator(metadata?.[key]);
 
-  return { indicator, selected, today };
+  return { indicator, selected, today, past };
 }
