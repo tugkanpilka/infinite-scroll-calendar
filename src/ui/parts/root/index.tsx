@@ -6,6 +6,8 @@ import Grid from '../grid';
 export default function Root(props: CalendarPureProps) {
   const {
     model,
+    activeMonthKey,
+    scrolled,
     onDaySelect,
     onWeekSelect,
     onMonthSelect,
@@ -27,6 +29,8 @@ export default function Root(props: CalendarPureProps) {
       <Grid
         sections={model.sections}
         expanded={!!model.expanded}
+        activeMonthKey={activeMonthKey}
+        scrolled={scrolled}
         onDaySelect={onDaySelect}
         onWeekSelect={onWeekSelect}
         onMonthSelect={onMonthSelect}

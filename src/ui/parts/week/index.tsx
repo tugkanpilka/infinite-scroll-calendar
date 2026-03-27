@@ -19,10 +19,12 @@ export default function Week(props: Props) {
       data-selected={selected}
       onClick={onSelect}
     >
-      {label}
-      {indicator && (
-        <span className={styles.indicator} data-indicator={indicator} />
-      )}
+      <span className={styles.content}>
+        <span className={styles.label}>{label}</span>
+        {indicator && (
+          <span className={styles.indicator} data-indicator={indicator} />
+        )}
+      </span>
     </button>
   );
 }

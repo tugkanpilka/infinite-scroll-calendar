@@ -1,6 +1,46 @@
 .root {
   display: grid;
-  grid-template-columns: auto repeat(7, minmax(0, 1fr));
-  gap: 0.25rem;
-  margin-bottom: 0.5rem;
+  grid-template-columns: var(--isc-week-col-width) repeat(7, 1fr);
+  align-items: center;
+  min-height: 24px;
+  margin: 0 6px;
+  padding-bottom: 4px;
+  position: relative;
+}
+
+.dayName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  font-family: var(--isc-font-family);
+  font-size: 11px;
+  color: var(--isc-text-secondary);
+  text-transform: uppercase;
+}
+
+.weekNumberMarker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  font-family: var(--isc-font-family);
+  font-size: 11px;
+  color: var(--isc-text-secondary);
+  font-feature-settings: 'tnum' 1;
+}
+
+.border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--isc-scroll-border-color);
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.border[data-visible='true'] {
+  opacity: 1;
 }

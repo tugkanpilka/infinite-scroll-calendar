@@ -41,11 +41,10 @@ describe('Calendar', () => {
       screen.getByRole('button', { name: 'Collapse' }),
     ).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('button', { name: '11' }));
-    expect(screen.getAllByRole('button', { name: '11' })[0]).toHaveAttribute(
-      'data-selected',
-      'true',
-    );
+    const dayButtons = screen.getAllByRole('button', { name: '11' });
+    const dayButton = dayButtons.find((btn) => btn.hasAttribute('data-outside'));
+    fireEvent.click(dayButton!);
+    expect(dayButton).toHaveAttribute('data-selected', 'true');
   });
 
   it('keeps collapsed expandable zones mounted for animation', () => {

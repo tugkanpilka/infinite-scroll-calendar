@@ -1,7 +1,43 @@
+// CSS Custom Property defaults — consumers override these.
+// :where() keeps specificity at 0 so overrides always win.
+:where(.root) {
+  --isc-font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'SF Pro Display', system-ui, sans-serif;
+
+  --isc-text-primary: #4a4845;
+  --isc-text-secondary: #9b9a97;
+
+  --isc-today-bg: #e74c3c;
+  --isc-today-text: #fff;
+
+  --isc-cell-size: 38px;
+  --isc-day-marker-size: 28px;
+  --isc-week-col-width: 22px;
+  --isc-day-radius: 50%;
+  --isc-row-gap: 0;
+  --isc-section-radius: 0.75rem;
+
+  --isc-hover-bg: rgba(30, 27, 24, 0.08);
+  --isc-row-hover-bg: rgba(30, 27, 24, 0.06);
+  --isc-selected-month-bg: rgba(30, 27, 24, 0.04);
+  --isc-outside-opacity: 0.25;
+
+  --isc-week-color: #9b9a97;
+  --isc-week-color-hover: #6b6b6b;
+  --isc-week-selected-bg: rgba(30, 27, 24, 0.1);
+
+  --isc-indicator-primary: #0b57d0;
+  --isc-indicator-secondary: rgba(11, 87, 208, 0.45);
+
+  --isc-scroll-border-color: rgba(0, 0, 0, 0.08);
+}
+
 .root {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0;
+  font-family: var(--isc-font-family);
+  background-color: transparent;
 }
 
 .toggle {

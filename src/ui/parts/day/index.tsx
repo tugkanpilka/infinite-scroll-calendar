@@ -6,28 +6,40 @@ interface Props {
   className?: string;
   selected: boolean;
   today: boolean;
+  past: boolean;
   outside: boolean;
   indicator?: false | 'primary' | 'secondary';
   onSelect?: () => void;
 }
 
 export default function Day(props: Props) {
-  const { label, className, selected, today, outside, indicator, onSelect } =
+  const { label, className, selected, today, past, outside, indicator, onSelect } =
     props;
+  const handleClick = outside ? undefined : onSelect;
 
   return (
     <button
       type="button"
-      className={[styles.root, className].filter(Boolean).join(' ')}
+      className={[styles.cell, className].filter(Boolean).join(' ')}
       data-selected={selected}
       data-today={today}
       data-outside={outside}
-      onClick={onSelect}
+      data-past={past}
+      aria-disabled={outside || undefined}
+      tabIndex={outside ? -1 : undefined}
+      onClick={handleClick}
     >
-      {label}
-      {indicator && (
-        <span className={styles.indicator} data-indicator={indicator} />
-      )}
+      <span
+        className={styles.marker}
+        data-selected={selected}
+        data-today={today}
+        data-past={past}
+      >
+        <span className={styles.label}>{label}</span>
+        {indicator && (
+          <span className={styles.indicator} data-indicator={indicator} />
+        )}
+      </span>
     </button>
   );
 }

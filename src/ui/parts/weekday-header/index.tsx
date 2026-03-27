@@ -8,16 +8,17 @@ const LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 interface Props {
   labels?: ReactNode[];
+  scrolled?: boolean;
   className?: string;
   dayNameClassName?: string;
 }
 
 export default function WeekdayHeader(props: Props) {
-  const { labels = LABELS, className, dayNameClassName } = props;
+  const { labels = LABELS, scrolled, className, dayNameClassName } = props;
 
   return (
     <div className={[styles.root, className].filter(Boolean).join(' ')}>
-      <span />
+      <span className={styles.weekNumberMarker}>#</span>
       {labels.map((label, index) => (
         <DayName
           key={`weekday-${index}`}
@@ -25,6 +26,7 @@ export default function WeekdayHeader(props: Props) {
           className={dayNameClassName}
         />
       ))}
+      <div className={styles.border} data-visible={!!scrolled} />
     </div>
   );
 }
