@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
@@ -10,9 +10,7 @@
     "noEmit": false,
     "module": "esnext",
     "moduleResolution": "bundler",
-    "paths": {
-      "date-grid": ["../date-grid/dist/index.d.ts"]
-    }
+    "types": ["node"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"]

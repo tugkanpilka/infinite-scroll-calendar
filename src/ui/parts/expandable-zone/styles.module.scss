@@ -1,7 +1,21 @@
 .root {
+  display: grid;
+  grid-template-rows: 0fr;
   overflow: hidden;
+  transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.root[data-expanded='false'] {
-  display: none;
+.root[data-expanded='true'] {
+  grid-template-rows: 1fr;
+}
+
+.inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    transition: none;
+  }
 }
