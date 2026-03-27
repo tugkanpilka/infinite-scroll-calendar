@@ -9,3 +9,14 @@
 .root[data-selected='true'] {
   color: #0b57d0;
 }
+
+.indicator {
+  width: 0.32rem;
+  height: 0.32rem;
+  border-radius: 999px;
+  background: #0b57d0;
+}
+
+.indicator[data-indicator='secondary'] {
+  background: rgba(11, 87, 208, 0.45);
+}

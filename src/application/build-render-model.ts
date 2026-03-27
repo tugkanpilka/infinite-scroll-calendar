@@ -4,10 +4,12 @@ import type { Cell, Section } from 'date-grid';
 import { buildVisualState } from './build-visual-state';
 import { splitVisibleRows } from './split-visible-rows';
 import type {
+  CalendarDayItem,
   CalendarItem,
   CalendarMetadataMap,
   CalendarRenderModel,
   CalendarValue,
+  CalendarWeekItem,
 } from '../types';
 
 function buildMonthLabel(section: Section): string {
@@ -24,6 +26,7 @@ function mapRow(
     { weekNumber: number; weekKey: string; year: number }
   >['rows'][number],
   value: CalendarValue,
+  selectionEnabled = true,
   metadata?: CalendarMetadataMap,
 ): CalendarItem[] {
   return row.items.map((item) => {
@@ -31,6 +34,7 @@ function mapRow(
       const visualState = buildVisualState({
         key: item.meta?.weekKey ?? item.id,
         value,
+        selectionEnabled,
         metadata,
       });
 
@@ -39,15 +43,17 @@ function mapRow(
         key: item.id,
         label: item.meta?.weekNumber ?? 0,
         value: item.meta?.weekKey ?? item.id,
+        weekNumber: item.meta?.weekNumber ?? 0,
         selected: visualState.selected,
         indicator: visualState.indicator,
-      } satisfies CalendarItem;
+      } satisfies CalendarWeekItem;
     }
 
     const cell = item as Cell;
     const visualState = buildVisualState({
       key: cell.dayKey,
       value,
+      selectionEnabled,
       metadata,
       outside: !cell.inMonth,
       date: cell.date,
@@ -58,31 +64,42 @@ function mapRow(
       key: cell.dayKey,
       label: cell.date.getDate(),
       value: cell.dayKey,
+      date: cell.date,
       today: visualState.today,
       selected: visualState.selected,
       outside: !cell.inMonth,
       indicator: visualState.indicator,
-    } satisfies CalendarItem;
+    } satisfies CalendarDayItem;
   });
 }
 
 export function buildRenderModel(params: {
   data: Section<Date, { weekNumber: number; weekKey: string; year: number }>[];
   value: CalendarValue;
+  selectionEnabled?: boolean;
   metadata?: CalendarMetadataMap;
   expanded?: boolean;
 }): CalendarRenderModel {
-  const { data, value, metadata, expanded } = params;
+  const {
+    data,
+    value,
+    selectionEnabled = true,
+    metadata,
+    expanded,
+  } = params;
 
   return {
     expanded,
     sections: data.map((section) => {
-      const rows = section.rows.map((row) => mapRow(row, value, metadata));
+      const rows = section.rows.map((row) =>
+        mapRow(row, value, selectionEnabled, metadata),
+      );
       const visibleRows = splitVisibleRows(rows, value);
       const monthValue = section.monthKey ?? section.id;
       const monthIndicator = buildVisualState({
         key: monthValue,
         value,
+        selectionEnabled,
         metadata,
       }).indicator;
 
@@ -90,6 +107,8 @@ export function buildRenderModel(params: {
         key: section.id,
         monthLabel: buildMonthLabel(section),
         monthValue,
+        year: section.year,
+        month: section.month,
         selected: value.kind === 'month' && value.key === monthValue,
         indicator: monthIndicator,
         ...visibleRows,

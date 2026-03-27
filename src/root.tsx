@@ -7,7 +7,7 @@ import CalendarPure from './pure';
 
 export default function Calendar(props: CalendarProps) {
   const controller = useController(props);
-  const { data, metadata } = props;
+  const { customization, data, metadata, selectionEnabled = true } = props;
   const { expanded, setExpanded, setValue, value } = controller;
 
   const model = useMemo(
@@ -15,10 +15,11 @@ export default function Calendar(props: CalendarProps) {
       buildRenderModel({
         data,
         value,
+        selectionEnabled,
         metadata,
         expanded,
       }),
-    [data, expanded, metadata, value],
+    [customization, data, expanded, metadata, selectionEnabled, value],
   );
 
   return (
@@ -28,6 +29,7 @@ export default function Calendar(props: CalendarProps) {
       onWeekSelect={(nextValue) => setValue({ kind: 'week', key: nextValue })}
       onMonthSelect={(nextValue) => setValue({ kind: 'month', key: nextValue })}
       onExpandedChange={setExpanded}
+      customization={customization}
     />
   );
 }

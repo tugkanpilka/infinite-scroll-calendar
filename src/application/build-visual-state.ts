@@ -10,6 +10,7 @@ import type {
 interface BuildVisualStateParams {
   key: string;
   value: CalendarValue;
+  selectionEnabled?: boolean;
   metadata?: CalendarMetadataMap;
   outside?: boolean;
   date?: Date;
@@ -24,8 +25,15 @@ export interface CalendarVisualState {
 export function buildVisualState(
   params: BuildVisualStateParams,
 ): CalendarVisualState {
-  const { key, value, metadata, outside = false, date } = params;
-  const selected = value.key === key;
+  const {
+    key,
+    value,
+    selectionEnabled = true,
+    metadata,
+    outside = false,
+    date,
+  } = params;
+  const selected = selectionEnabled && value.key === key;
   const today = !!date && isToday(date);
   const indicator = outside ? false : resolveIndicator(metadata?.[key]);
 

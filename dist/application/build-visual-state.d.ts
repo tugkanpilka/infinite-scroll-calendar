@@ -2,6 +2,7 @@ import type { CalendarIndicator, CalendarMetadataMap, CalendarValue } from '../t
 interface BuildVisualStateParams {
     key: string;
     value: CalendarValue;
+    selectionEnabled?: boolean;
     metadata?: CalendarMetadataMap;
     outside?: boolean;
     date?: Date;
