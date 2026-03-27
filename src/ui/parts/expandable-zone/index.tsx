@@ -11,8 +11,12 @@ export default function ExpandableZone(props: Props) {
   const { expanded, children } = props;
 
   return (
-    <div className={styles.root} data-expanded={expanded}>
-      {children}
+    <div
+      className={styles.root}
+      data-expanded={expanded}
+      aria-hidden={!expanded}
+    >
+      <div className={styles.inner}>{children}</div>
     </div>
   );
 }

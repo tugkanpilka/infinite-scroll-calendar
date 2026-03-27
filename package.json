@@ -1,6 +1,6 @@
 {
   "name": "infinite-scroll-calendar",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Standalone React calendar package for Docbook",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -33,13 +33,23 @@
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "date-grid": "^0.0.1",
-    "date-fns": "^4.1.0"
+    "date-fns": "^4.1.0",
+    "date-grid": "^0.0.1"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^24.5.2",
     "@types/react": "^19.0.11",
     "@types/react-dom": "^19.0.4",
+    "jsdom": "^27.0.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  }
+    "react-dom": "^18.3.1",
+    "sass": "^1.93.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.7",
+    "vitest": "^3.2.4"
+  },
+  "packageManager": "yarn@4.4.1+sha512.f825273d0689cc9ead3259c14998037662f1dcd06912637b21a450e8da7cfeb4b1965bbee73d16927baa1201054126bc385c6f43ff4aa705c8631d26e12460f1"
 }
