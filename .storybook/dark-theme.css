@@ -1,0 +1,41 @@
+/*
+ * Storybook theme overrides.
+ * Specificity (0,1,0) beats :where(.root) at (0,0,0),
+ * including the @media (prefers-color-scheme: dark) block.
+ */
+
+/* Force dark — regardless of OS setting */
+[data-theme='dark'] * {
+  --isc-text-primary: #c0c0c0;
+  --isc-text-secondary: #a0a0a0;
+  --isc-today-bg: #ef5350;
+  --isc-today-text: #fff;
+  --isc-hover-bg: rgba(255, 255, 255, 0.35);
+  --isc-row-hover-bg: rgba(255, 255, 255, 0.06);
+  --isc-selected-month-bg: rgba(255, 255, 255, 0.04);
+  --isc-outside-opacity: 0.75;
+  --isc-week-color: #707070;
+  --isc-week-color-hover: #909090;
+  --isc-week-selected-bg: rgba(255, 255, 255, 0.1);
+  --isc-indicator-primary: #5b9bff;
+  --isc-indicator-secondary: rgba(91, 155, 255, 0.45);
+  --isc-scroll-border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Force light — override auto dark on dark OS */
+[data-theme='light'] * {
+  --isc-text-primary: #4a4845;
+  --isc-text-secondary: #9b9a97;
+  --isc-today-bg: #e74c3c;
+  --isc-today-text: #fff;
+  --isc-hover-bg: rgba(30, 27, 24, 0.08);
+  --isc-row-hover-bg: rgba(30, 27, 24, 0.06);
+  --isc-selected-month-bg: rgba(30, 27, 24, 0.04);
+  --isc-outside-opacity: 0.25;
+  --isc-week-color: #9b9a97;
+  --isc-week-color-hover: #6b6b6b;
+  --isc-week-selected-bg: rgba(30, 27, 24, 0.1);
+  --isc-indicator-primary: #0b57d0;
+  --isc-indicator-secondary: rgba(11, 87, 208, 0.45);
+  --isc-scroll-border-color: rgba(0, 0, 0, 0.08);
+}

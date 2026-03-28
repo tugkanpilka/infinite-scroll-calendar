@@ -1,4 +1,4 @@
-import type { ComponentType, ReactNode } from 'react';
+import type { ComponentType, CSSProperties, ReactNode } from 'react';
 import type { Section, WeekNumberMeta } from 'date-grid';
 
 export type CalendarValue =
@@ -156,15 +156,18 @@ export interface CalendarProps {
   defaultExpanded?: boolean;
   onExpandedChange?: (expanded: boolean) => void;
   customization?: CalendarCustomization;
+  style?: CSSProperties;
 }
 
 export interface CalendarPureProps {
   model: CalendarRenderModel;
   activeMonthKey?: string;
+  monthSelected?: boolean;
   scrolled?: boolean;
   onDaySelect?: (value: string) => void;
   onWeekSelect?: (value: string) => void;
   onMonthSelect?: (value: string) => void;
   onExpandedChange?: (expanded: boolean) => void;
   customization?: CalendarCustomization;
+  style?: CSSProperties;
 }

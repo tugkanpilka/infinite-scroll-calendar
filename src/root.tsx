@@ -14,6 +14,7 @@ export default function Calendar(props: CalendarProps) {
     metadata,
     scrolled,
     selectionEnabled = true,
+    style,
   } = props;
   const { expanded, setExpanded, setValue, value } = controller;
 
@@ -38,12 +39,14 @@ export default function Calendar(props: CalendarProps) {
     <CalendarPure
       model={model}
       activeMonthKey={activeMonthKey}
+      monthSelected={value.kind === 'month'}
       scrolled={scrolled}
       onDaySelect={(nextValue) => setValue({ kind: 'day', key: nextValue })}
       onWeekSelect={(nextValue) => setValue({ kind: 'week', key: nextValue })}
       onMonthSelect={(nextValue) => setValue({ kind: 'month', key: nextValue })}
       onExpandedChange={setExpanded}
       customization={customization}
+      style={style}
     />
   );
 }

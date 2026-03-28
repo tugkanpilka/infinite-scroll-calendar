@@ -1,22 +1,5 @@
 import type { Preview } from '@storybook/react-vite';
-import type React from 'react';
-
-const DARK_VARS: React.CSSProperties = {
-  '--isc-text-primary': '#c0c0c0',
-  '--isc-text-secondary': '#a0a0a0',
-  '--isc-today-bg': '#ef5350',
-  '--isc-today-text': '#fff',
-  '--isc-hover-bg': 'rgba(255,255,255,0.35)',
-  '--isc-row-hover-bg': 'rgba(255,255,255,0.06)',
-  '--isc-selected-month-bg': 'rgba(255,255,255,0.04)',
-  '--isc-outside-opacity': '0.75',
-  '--isc-week-color': '#707070',
-  '--isc-week-color-hover': '#909090',
-  '--isc-week-selected-bg': 'rgba(255,255,255,0.1)',
-  '--isc-indicator-primary': '#5b9bff',
-  '--isc-indicator-secondary': 'rgba(91,155,255,0.45)',
-  '--isc-scroll-border-color': 'rgba(255,255,255,0.08)',
-} as React.CSSProperties;
+import './dark-theme.css';
 
 const preview: Preview = {
   globalTypes: {
@@ -42,8 +25,8 @@ const preview: Preview = {
 
       return (
         <div
+          data-theme={isDark ? 'dark' : 'light'}
           style={{
-            ...(isDark ? DARK_VARS : {}),
             '--isc-max-height': '400px',
             padding: '24px',
             background: isDark ? '#1c1c1c' : '#fdfcfb',

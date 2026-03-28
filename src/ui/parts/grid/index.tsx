@@ -16,6 +16,7 @@ import WeekdayHeader from '../weekday-header';
 interface Props {
   sections: CalendarSection[];
   expanded: boolean;
+  monthSelected?: boolean;
   activeMonthKey?: string;
   scrolled?: boolean;
   onDaySelect?: (value: string) => void;
@@ -119,6 +120,7 @@ export default function Grid(props: Props) {
   const {
     sections,
     expanded,
+    monthSelected,
     activeMonthKey,
     scrolled,
     onDaySelect,
@@ -136,7 +138,7 @@ export default function Grid(props: Props) {
 
   return (
     <div className={joinClassNames(styles.root, customization?.classNames?.grid)}>
-      {sections.map((section) => {
+      {sections.map((section, sectionIndex) => {
         const isActive = section.monthValue === activeMonthKey;
 
         return (
@@ -175,41 +177,42 @@ export default function Grid(props: Props) {
                   onSelect={() => onMonthSelect?.(section.monthValue)}
                 />
               )}
-              {WeekdayHeaderSlot ? (
-                <WeekdayHeaderSlot
-                  labels={weekdayLabels.map((label, index) =>
-                    DayNameSlot ? (
-                      <DayNameSlot
-                        key={`weekday-${index}`}
-                        index={index}
-                        label={label}
-                        className={dayNameClassName}
-                      />
-                    ) : (
-                      label
-                    ),
-                  )}
-                  scrolled={scrolled}
-                  className={customization?.classNames?.weekdayHeader}
-                  dayNameClassName={dayNameClassName}
-                />
-              ) : (
-                <WeekdayHeader
-                  labels={weekdayLabels}
-                  scrolled={scrolled}
-                  className={customization?.classNames?.weekdayHeader}
-                  dayNameClassName={dayNameClassName}
-                />
-              )}
+              {(!expanded || sectionIndex === 0) &&
+                (WeekdayHeaderSlot ? (
+                  <WeekdayHeaderSlot
+                    labels={weekdayLabels.map((label, index) =>
+                      DayNameSlot ? (
+                        <DayNameSlot
+                          key={`weekday-${index}`}
+                          index={index}
+                          label={label}
+                          className={dayNameClassName}
+                        />
+                      ) : (
+                        label
+                      ),
+                    )}
+                    scrolled={scrolled}
+                    className={customization?.classNames?.weekdayHeader}
+                    dayNameClassName={dayNameClassName}
+                  />
+                ) : (
+                  <WeekdayHeader
+                    labels={weekdayLabels}
+                    scrolled={scrolled}
+                    className={customization?.classNames?.weekdayHeader}
+                    dayNameClassName={dayNameClassName}
+                  />
+                ))}
               <ExpandableZone
-                expanded={expanded}
+                expanded={expanded || (isActive && !!monthSelected)}
                 className={customization?.classNames?.expandableZone}
               >
                 {renderRows(section.beforeRows, customization, onDaySelect, onWeekSelect)}
               </ExpandableZone>
               {renderRows(section.activeRows, customization, onDaySelect, onWeekSelect)}
               <ExpandableZone
-                expanded={expanded}
+                expanded={expanded || (isActive && !!monthSelected)}
                 className={customization?.classNames?.expandableZone}
               >
                 {renderRows(section.afterRows, customization, onDaySelect, onWeekSelect)}
