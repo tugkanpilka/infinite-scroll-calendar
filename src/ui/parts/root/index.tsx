@@ -22,10 +22,16 @@ export default function Root(props: CalendarPureProps) {
   const prevExpandedRef = useRef(model.expanded);
 
   useEffect(() => {
-    const wasCollapsed = !prevExpandedRef.current;
+    const changed = prevExpandedRef.current !== model.expanded;
     prevExpandedRef.current = model.expanded;
 
-    if (!wasCollapsed || !model.expanded) return;
+    if (!changed) return;
+
+    if (!model.expanded) {
+      // Collapse: instantly reset scroll so the shrinking animation looks clean
+      if (rootRef.current) rootRef.current.scrollTop = 0;
+      return;
+    }
 
     const timer = setTimeout(() => {
       const selected = rootRef.current?.querySelector('[data-selected="true"]');

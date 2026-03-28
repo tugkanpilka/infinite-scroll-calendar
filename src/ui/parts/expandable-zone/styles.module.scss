@@ -2,20 +2,33 @@
   display: grid;
   grid-template-rows: 0fr;
   overflow: hidden;
-  transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: grid-template-rows 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .root[data-expanded='true'] {
   grid-template-rows: 1fr;
+  transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .inner {
   overflow: hidden;
   min-height: 0;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.root[data-expanded='true'] .inner {
+  opacity: 1;
+  transition: opacity 250ms 80ms ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .root {
+    transition: none;
+  }
+
+  .inner {
+    opacity: 1;
     transition: none;
   }
 }
