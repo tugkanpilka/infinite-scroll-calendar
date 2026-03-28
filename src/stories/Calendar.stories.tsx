@@ -74,7 +74,7 @@ const meta: Meta<typeof Calendar> = {
   component: Calendar,
   args: {
     data,
-    expanded: true,
+    defaultExpanded: true,
     selectionEnabled: true,
     // Wire onValueChange to Storybook's Actions panel
     onValueChange: fn(),
@@ -82,7 +82,7 @@ const meta: Meta<typeof Calendar> = {
   },
   argTypes: {
     scrolled: { control: 'boolean' },
-    expanded: { control: 'boolean' },
+    defaultExpanded: { control: 'boolean' },
     selectionEnabled: { control: 'boolean' },
   },
 };
@@ -125,7 +125,6 @@ export const Collapsed: Story = {
   args: {
     defaultValue: { kind: 'day', key: todayKey() },
     defaultExpanded: false,
-    expanded: undefined,
   },
 };
 

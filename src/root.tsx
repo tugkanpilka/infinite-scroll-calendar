@@ -14,6 +14,7 @@ export default function Calendar(props: CalendarProps) {
     metadata,
     scrolled,
     selectionEnabled = true,
+    style,
   } = props;
   const { expanded, setExpanded, setValue, value } = controller;
 
@@ -44,6 +45,7 @@ export default function Calendar(props: CalendarProps) {
       onMonthSelect={(nextValue) => setValue({ kind: 'month', key: nextValue })}
       onExpandedChange={setExpanded}
       customization={customization}
+      style={style}
     />
   );
 }

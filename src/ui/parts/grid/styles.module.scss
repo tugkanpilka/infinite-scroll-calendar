@@ -12,7 +12,8 @@
   transition: background-color 150ms ease;
 }
 
-.section:has([data-kind='month'][data-selected='true']) {
+.section:has([data-kind='month'][data-selected='true']),
+.section:has([data-kind='month']:hover) {
   background-color: var(--isc-selected-month-bg);
 }
 
