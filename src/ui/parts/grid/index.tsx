@@ -140,77 +140,82 @@ export default function Grid(props: Props) {
         const isActive = section.monthValue === activeMonthKey;
 
         return (
-          <section
+          <ExpandableZone
             key={section.key}
-            className={joinClassNames(
-              styles.section,
-              customization?.classNames?.section,
-            )}
+            expanded={expanded || isActive}
+            className={customization?.classNames?.expandableZone}
           >
-            {MonthSlot ? (
-              <MonthSlot
-                section={section}
-                label={
-                  customization?.formatters?.monthLabel?.(section) ??
-                  section.monthLabel
-                }
-                isActive={isActive}
-                className={customization?.classNames?.month}
-                onSelect={() => onMonthSelect?.(section.monthValue)}
-              />
-            ) : (
-              <Month
-                label={
-                  customization?.formatters?.monthLabel?.(section) ??
-                  section.monthLabel
-                }
-                className={customization?.classNames?.month}
-                selected={section.selected}
-                isActive={isActive}
-                indicator={section.indicator}
-                onSelect={() => onMonthSelect?.(section.monthValue)}
-              />
-            )}
-            {WeekdayHeaderSlot ? (
-              <WeekdayHeaderSlot
-                labels={weekdayLabels.map((label, index) =>
-                  DayNameSlot ? (
-                    <DayNameSlot
-                      key={`weekday-${index}`}
-                      index={index}
-                      label={label}
-                      className={dayNameClassName}
-                    />
-                  ) : (
-                    label
-                  ),
-                )}
-                scrolled={scrolled}
-                className={customization?.classNames?.weekdayHeader}
-                dayNameClassName={dayNameClassName}
-              />
-            ) : (
-              <WeekdayHeader
-                labels={weekdayLabels}
-                scrolled={scrolled}
-                className={customization?.classNames?.weekdayHeader}
-                dayNameClassName={dayNameClassName}
-              />
-            )}
-            <ExpandableZone
-              expanded={expanded}
-              className={customization?.classNames?.expandableZone}
+            <section
+              className={joinClassNames(
+                styles.section,
+                customization?.classNames?.section,
+              )}
             >
-              {renderRows(section.beforeRows, customization, onDaySelect, onWeekSelect)}
-            </ExpandableZone>
-            {renderRows(section.activeRows, customization, onDaySelect, onWeekSelect)}
-            <ExpandableZone
-              expanded={expanded}
-              className={customization?.classNames?.expandableZone}
-            >
-              {renderRows(section.afterRows, customization, onDaySelect, onWeekSelect)}
-            </ExpandableZone>
-          </section>
+              {MonthSlot ? (
+                <MonthSlot
+                  section={section}
+                  label={
+                    customization?.formatters?.monthLabel?.(section) ??
+                    section.monthLabel
+                  }
+                  isActive={isActive}
+                  className={customization?.classNames?.month}
+                  onSelect={() => onMonthSelect?.(section.monthValue)}
+                />
+              ) : (
+                <Month
+                  label={
+                    customization?.formatters?.monthLabel?.(section) ??
+                    section.monthLabel
+                  }
+                  className={customization?.classNames?.month}
+                  selected={section.selected}
+                  isActive={isActive}
+                  indicator={section.indicator}
+                  onSelect={() => onMonthSelect?.(section.monthValue)}
+                />
+              )}
+              {WeekdayHeaderSlot ? (
+                <WeekdayHeaderSlot
+                  labels={weekdayLabels.map((label, index) =>
+                    DayNameSlot ? (
+                      <DayNameSlot
+                        key={`weekday-${index}`}
+                        index={index}
+                        label={label}
+                        className={dayNameClassName}
+                      />
+                    ) : (
+                      label
+                    ),
+                  )}
+                  scrolled={scrolled}
+                  className={customization?.classNames?.weekdayHeader}
+                  dayNameClassName={dayNameClassName}
+                />
+              ) : (
+                <WeekdayHeader
+                  labels={weekdayLabels}
+                  scrolled={scrolled}
+                  className={customization?.classNames?.weekdayHeader}
+                  dayNameClassName={dayNameClassName}
+                />
+              )}
+              <ExpandableZone
+                expanded={expanded}
+                className={customization?.classNames?.expandableZone}
+              >
+                {renderRows(section.beforeRows, customization, onDaySelect, onWeekSelect)}
+              </ExpandableZone>
+              {renderRows(section.activeRows, customization, onDaySelect, onWeekSelect)}
+              <ExpandableZone
+                expanded={expanded}
+                className={customization?.classNames?.expandableZone}
+              >
+                {renderRows(section.afterRows, customization, onDaySelect, onWeekSelect)}
+              </ExpandableZone>
+            </section>
+          </ExpandableZone>
         );
       })}
     </div>
