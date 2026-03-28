@@ -1,14 +1,15 @@
 import type { Preview } from '@storybook/react-vite';
+import type React from 'react';
 
 const DARK_VARS: React.CSSProperties = {
   '--isc-text-primary': '#c0c0c0',
   '--isc-text-secondary': '#a0a0a0',
   '--isc-today-bg': '#ef5350',
   '--isc-today-text': '#fff',
-  '--isc-hover-bg': 'rgba(255,255,255,0.08)',
+  '--isc-hover-bg': 'rgba(255,255,255,0.35)',
   '--isc-row-hover-bg': 'rgba(255,255,255,0.06)',
   '--isc-selected-month-bg': 'rgba(255,255,255,0.04)',
-  '--isc-outside-opacity': '0.3',
+  '--isc-outside-opacity': '0.75',
   '--isc-week-color': '#707070',
   '--isc-week-color-hover': '#909090',
   '--isc-week-selected-bg': 'rgba(255,255,255,0.1)',
@@ -43,11 +44,12 @@ const preview: Preview = {
         <div
           style={{
             ...(isDark ? DARK_VARS : {}),
+            '--isc-max-height': '400px',
             padding: '24px',
             background: isDark ? '#1c1c1c' : '#fdfcfb',
             minWidth: '260px',
             borderRadius: '12px',
-          }}
+          } as React.CSSProperties}
         >
           <Story />
         </div>

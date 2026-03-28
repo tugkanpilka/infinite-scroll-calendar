@@ -30,6 +30,7 @@
   --isc-indicator-secondary: rgba(11, 87, 208, 0.45);
 
   --isc-scroll-border-color: rgba(0, 0, 0, 0.08);
+
 }
 
 .root {
@@ -38,9 +39,13 @@
   gap: 0;
   font-family: var(--isc-font-family);
   background-color: transparent;
+  max-height: var(--isc-max-height, none);
+  overflow-y: auto;
 }
 
 .toggle {
+  position: sticky;
+  bottom: 0;
   align-self: center;
   border: 0;
   background: transparent;

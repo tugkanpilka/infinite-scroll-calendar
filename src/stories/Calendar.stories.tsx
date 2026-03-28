@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from '@storybook/test';
+import { fn } from 'storybook/test';
 import {
   addWeekNumbers,
   buildRange,
@@ -9,12 +9,13 @@ import {
 } from 'date-grid';
 
 import Calendar from '../root';
+import type { CalendarMetadataMap } from '../types';
 
 // ---------------------------------------------------------------------------
 // Data helpers
 // ---------------------------------------------------------------------------
 
-function buildData(monthsBack = 1, monthsAhead = 2) {
+function buildData(monthsBack = 12, monthsAhead = 12) {
   const today = new Date();
   const start = new Date(today.getFullYear(), today.getMonth() - monthsBack, 1);
   const end = new Date(
@@ -50,13 +51,16 @@ function thisWeekKey(): string {
   return `${d.getFullYear()}-W${week}`;
 }
 
-function makeIndicators(range: number): Record<string, 'primary' | 'secondary'> {
-  const map: Record<string, 'primary' | 'secondary'> = {};
+function makeIndicators(range: number): CalendarMetadataMap {
+  const map: CalendarMetadataMap = {};
   const base = new Date();
   for (let i = -range; i <= range; i++) {
     const d = new Date(base);
     d.setDate(d.getDate() + i);
-    map[d.toISOString().slice(0, 10)] = i % 3 === 0 ? 'primary' : 'secondary';
+    map[d.toISOString().slice(0, 10)] = {
+      hasContent: true,
+      hasUncompletedTodo: i % 3 === 0,
+    };
   }
   return map;
 }
