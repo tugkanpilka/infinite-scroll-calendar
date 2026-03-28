@@ -7,6 +7,7 @@ export default function Root(props: CalendarPureProps) {
   const {
     model,
     activeMonthKey,
+    monthSelected,
     scrolled,
     onDaySelect,
     onWeekSelect,
@@ -43,6 +44,7 @@ export default function Root(props: CalendarPureProps) {
       <Grid
         sections={model.sections}
         expanded={!!model.expanded}
+        monthSelected={monthSelected}
         activeMonthKey={activeMonthKey}
         scrolled={scrolled}
         onDaySelect={onDaySelect}

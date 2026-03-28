@@ -162,6 +162,7 @@ export interface CalendarProps {
 export interface CalendarPureProps {
   model: CalendarRenderModel;
   activeMonthKey?: string;
+  monthSelected?: boolean;
   scrolled?: boolean;
   onDaySelect?: (value: string) => void;
   onWeekSelect?: (value: string) => void;

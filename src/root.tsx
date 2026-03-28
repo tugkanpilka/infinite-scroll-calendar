@@ -39,6 +39,7 @@ export default function Calendar(props: CalendarProps) {
     <CalendarPure
       model={model}
       activeMonthKey={activeMonthKey}
+      monthSelected={value.kind === 'month'}
       scrolled={scrolled}
       onDaySelect={(nextValue) => setValue({ kind: 'day', key: nextValue })}
       onWeekSelect={(nextValue) => setValue({ kind: 'week', key: nextValue })}
