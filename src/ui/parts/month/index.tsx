@@ -23,6 +23,9 @@ export default function Month(props: Props) {
       onClick={onSelect}
     >
       <span className={styles.title}>{label}</span>
+      {indicator && (
+        <span className={styles.indicator} data-indicator={indicator} />
+      )}
       <svg
         className={styles.chevron}
         viewBox="0 0 16 16"
@@ -34,9 +37,6 @@ export default function Month(props: Props) {
       >
         <path d="M6 4l4 4-4 4" />
       </svg>
-      {indicator && (
-        <span className={styles.indicator} data-indicator={indicator} />
-      )}
     </button>
   );
 }

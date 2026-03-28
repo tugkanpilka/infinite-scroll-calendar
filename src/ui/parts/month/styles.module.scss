@@ -1,7 +1,7 @@
 .root {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   padding: 4px 8px 4px 0;
   margin-left: 4px;
   border: 0;
@@ -46,7 +46,7 @@
 .chevron {
   width: 10px;
   height: 10px;
-  margin-left: 2px;
+  margin-left: 4px;
   color: var(--isc-text-secondary);
   opacity: 0.4;
   transition:
@@ -59,6 +59,7 @@
   height: 5px;
   border-radius: 999px;
   background: var(--isc-indicator-primary);
+  margin-left: 4px;
 }
 
 .indicator[data-indicator='secondary'] {
