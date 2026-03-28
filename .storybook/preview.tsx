@@ -27,7 +27,9 @@ const preview: Preview = {
         <div
           data-theme={isDark ? 'dark' : 'light'}
           style={{
-            '--isc-max-height': '400px',
+            display: 'flex',
+            flexDirection: 'column',
+            height: '400px',
             padding: '24px',
             background: isDark ? '#1c1c1c' : '#fdfcfb',
             minWidth: '260px',
