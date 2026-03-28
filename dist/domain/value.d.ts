@@ -11,3 +11,4 @@ export declare function isMonthValue(value: CalendarValue): value is {
     kind: 'month';
     key: string;
 };
+export declare function deriveActiveMonth(value?: CalendarValue): string | undefined;

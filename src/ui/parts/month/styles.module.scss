@@ -1,12 +1,54 @@
 .root {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px 4px 0;
+  margin-left: 4px;
   border: 0;
+  border-radius: 6px;
   background: transparent;
-  padding: 0.5rem 0;
-  font-size: 1rem;
-  font-weight: 700;
   cursor: pointer;
+  transition: background-color 120ms ease;
 }
 
-.root[data-selected='true'] {
-  color: #0b57d0;
+.root:hover {
+  background-color: var(--isc-hover-bg);
+}
+
+.root:active {
+  background-color: var(--isc-week-selected-bg);
+}
+
+.root:hover .chevron {
+  opacity: 0.7;
+  transform: translateX(1px);
+}
+
+.title {
+  font-family: var(--isc-font-family);
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  color: var(--isc-text-primary);
+}
+
+.chevron {
+  width: 10px;
+  height: 10px;
+  margin-left: 2px;
+  color: var(--isc-text-secondary);
+  opacity: 0.4;
+  transition:
+    opacity 120ms ease,
+    transform 120ms ease;
+}
+
+.indicator {
+  width: 0.32rem;
+  height: 0.32rem;
+  border-radius: 999px;
+  background: var(--isc-indicator-primary);
+}
+
+.indicator[data-indicator='secondary'] {
+  background: var(--isc-indicator-secondary);
 }

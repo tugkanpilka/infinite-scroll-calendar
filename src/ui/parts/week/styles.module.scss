@@ -1,11 +1,74 @@
 .root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: var(--isc-week-col-width);
+  height: var(--isc-cell-size);
+  padding: 0;
   border: 0;
   background: transparent;
-  padding: 0.5rem;
   cursor: pointer;
+  color: var(--isc-week-color);
+}
+
+.root::before {
+  content: '';
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: -4px;
+  width: calc(100cqw + 11px);
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease;
+  background-color: var(--isc-row-hover-bg);
+}
+
+.root:hover::before,
+.root[data-selected='true']::before {
+  opacity: 1;
+}
+
+.root[data-selected='true']::before {
+  background-color: var(--isc-week-selected-bg);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.label {
+  font-family: var(--isc-font-family);
+  font-size: 13px;
+  font-feature-settings: 'tnum' 1;
+  color: var(--isc-week-color);
+  transition: color 100ms ease;
+}
+
+.root:hover .label {
+  color: var(--isc-week-color-hover);
+}
+
+.root[data-selected='true'] .label {
+  color: var(--isc-week-color);
   font-weight: 600;
 }
 
-.root[data-selected='true'] {
-  color: #0b57d0;
+.indicator {
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 999px;
+  background: var(--isc-indicator-primary);
+}
+
+.indicator[data-indicator='secondary'] {
+  background: var(--isc-indicator-secondary);
 }

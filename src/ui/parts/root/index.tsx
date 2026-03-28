@@ -4,26 +4,59 @@ import type { CalendarPureProps } from '../../../types';
 import Grid from '../grid';
 
 export default function Root(props: CalendarPureProps) {
-  const { model, onDaySelect, onWeekSelect, onMonthSelect, onExpandedChange } =
-    props;
+  const {
+    model,
+    activeMonthKey,
+    scrolled,
+    onDaySelect,
+    onWeekSelect,
+    onMonthSelect,
+    onExpandedChange,
+    customization,
+  } = props;
+
+  const ToggleSlot = customization?.slots?.toggle;
+  const toggleLabel =
+    customization?.formatters?.toggleLabel?.(!!model.expanded) ??
+    (model.expanded ? 'Collapse' : 'Expand');
 
   return (
-    <div className={styles.root}>
+    <div
+      className={[styles.root, customization?.classNames?.root]
+        .filter(Boolean)
+        .join(' ')}
+    >
       <Grid
         sections={model.sections}
         expanded={!!model.expanded}
+        activeMonthKey={activeMonthKey}
+        scrolled={scrolled}
         onDaySelect={onDaySelect}
         onWeekSelect={onWeekSelect}
         onMonthSelect={onMonthSelect}
+        customization={customization}
       />
       {onExpandedChange && (
-        <button
-          type="button"
-          className={styles.toggle}
-          onClick={() => onExpandedChange(!model.expanded)}
-        >
-          {model.expanded ? 'Collapse' : 'Expand'}
-        </button>
+        ToggleSlot ? (
+          <ToggleSlot
+            expanded={!!model.expanded}
+            label={toggleLabel}
+            className={[styles.toggle, customization?.classNames?.toggle]
+              .filter(Boolean)
+              .join(' ')}
+            onToggle={() => onExpandedChange(!model.expanded)}
+          />
+        ) : (
+          <button
+            type="button"
+            className={[styles.toggle, customization?.classNames?.toggle]
+              .filter(Boolean)
+              .join(' ')}
+            onClick={() => onExpandedChange(!model.expanded)}
+          >
+            {toggleLabel}
+          </button>
+        )
       )}
     </div>
   );

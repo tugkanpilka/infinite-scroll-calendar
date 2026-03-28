@@ -1,19 +1,89 @@
-.root {
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: var(--isc-cell-size);
+  padding: 0;
   border: 0;
   background: transparent;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  user-select: none;
   cursor: pointer;
 }
 
-.root[data-selected='true'] {
-  background: rgba(0, 0, 0, 0.08);
+.cell[data-outside='true'] {
+  pointer-events: none;
 }
 
-.root[data-today='true'] {
-  outline: 1px solid rgba(200, 0, 0, 0.4);
+.marker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--isc-day-marker-size);
+  height: var(--isc-day-marker-size);
+  border-radius: var(--isc-day-radius);
+  transition:
+    background-color 100ms ease,
+    box-shadow 100ms ease,
+    filter 100ms ease;
 }
 
-.root[data-outside='true'] {
-  opacity: 0.5;
+.cell:hover .marker {
+  background-color: var(--isc-hover-bg);
+}
+
+.marker[data-past='true'] .label {
+  color: var(--isc-text-secondary);
+}
+
+.marker[data-selected='true'] {
+  background-color: var(--isc-hover-bg);
+}
+
+.marker[data-selected='true'] .label {
+  font-weight: 500;
+}
+
+.marker[data-today='true'] {
+  background-color: var(--isc-today-bg);
+}
+
+.marker[data-today='true'] .label {
+  color: var(--isc-today-text);
+  font-weight: 600;
+}
+
+.cell:hover .marker[data-today='true'] {
+  filter: brightness(0.9);
+}
+
+.marker[data-selected='true'][data-today='true'] {
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.25);
+}
+
+.cell[data-outside='true'] .label {
+  opacity: var(--isc-outside-opacity);
+}
+
+.label {
+  font-family: var(--isc-font-family);
+  font-size: 13px;
+  line-height: 1;
+  color: var(--isc-text-primary);
+}
+
+.indicator {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 999px;
+  background: var(--isc-indicator-primary);
+}
+
+.indicator[data-indicator='secondary'] {
+  background: var(--isc-indicator-secondary);
 }

@@ -1,5 +1,7 @@
+import type { ReactNode } from 'react';
 interface Props {
-    label: string;
+    label: ReactNode;
+    className?: string;
 }
-export default function DayName({ label }: Props): import("react/jsx-runtime").JSX.Element;
+export default function DayName({ label, className }: Props): import("react/jsx-runtime").JSX.Element;
 export {};

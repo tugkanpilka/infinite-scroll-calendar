@@ -7,6 +7,7 @@ export declare function buildRenderModel(params: {
         year: number;
     }>[];
     value: CalendarValue;
+    selectionEnabled?: boolean;
     metadata?: CalendarMetadataMap;
     expanded?: boolean;
 }): CalendarRenderModel;

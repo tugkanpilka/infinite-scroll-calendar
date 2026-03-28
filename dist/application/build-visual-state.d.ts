@@ -2,6 +2,7 @@ import type { CalendarIndicator, CalendarMetadataMap, CalendarValue } from '../t
 interface BuildVisualStateParams {
     key: string;
     value: CalendarValue;
+    selectionEnabled?: boolean;
     metadata?: CalendarMetadataMap;
     outside?: boolean;
     date?: Date;
@@ -10,6 +11,7 @@ export interface CalendarVisualState {
     indicator: CalendarIndicator;
     selected: boolean;
     today: boolean;
+    past: boolean;
 }
 export declare function buildVisualState(params: BuildVisualStateParams): CalendarVisualState;
 export {};
