@@ -3,3 +3,6 @@ coverage
 *.tgz
 .yarn
 vitest.config.ts.timestamp-*.mjs
+
+*storybook.log
+storybook-static

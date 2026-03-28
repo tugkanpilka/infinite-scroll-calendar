@@ -3,6 +3,7 @@ interface Props {
     label: ReactNode;
     className?: string;
     selected: boolean;
+    isActive: boolean;
     indicator?: false | 'primary' | 'secondary';
     onSelect?: () => void;
 }

@@ -28,6 +28,7 @@ export interface CalendarDayItem {
     value: string;
     date: Date;
     today: boolean;
+    past: boolean;
     selected: boolean;
     outside: boolean;
     indicator: CalendarIndicator;
@@ -81,6 +82,7 @@ export interface CalendarWeekSlotProps {
 export interface CalendarMonthSlotProps {
     section: CalendarSection;
     label: ReactNode;
+    isActive: boolean;
     className?: string;
     onSelect?: () => void;
 }
@@ -91,6 +93,7 @@ export interface CalendarDayNameSlotProps {
 }
 export interface CalendarWeekdayHeaderSlotProps {
     labels: ReactNode[];
+    scrolled?: boolean;
     className?: string;
     dayNameClassName?: string;
 }
@@ -120,6 +123,7 @@ export interface CalendarProps {
     defaultValue?: CalendarValue;
     onValueChange?: (value: CalendarValue) => void;
     selectionEnabled?: boolean;
+    scrolled?: boolean;
     metadata?: CalendarMetadataMap;
     expanded?: boolean;
     defaultExpanded?: boolean;
@@ -128,6 +132,8 @@ export interface CalendarProps {
 }
 export interface CalendarPureProps {
     model: CalendarRenderModel;
+    activeMonthKey?: string;
+    scrolled?: boolean;
     onDaySelect?: (value: string) => void;
     onWeekSelect?: (value: string) => void;
     onMonthSelect?: (value: string) => void;

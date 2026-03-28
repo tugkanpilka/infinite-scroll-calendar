@@ -11,6 +11,7 @@ export interface CalendarVisualState {
     indicator: CalendarIndicator;
     selected: boolean;
     today: boolean;
+    past: boolean;
 }
 export declare function buildVisualState(params: BuildVisualStateParams): CalendarVisualState;
 export {};

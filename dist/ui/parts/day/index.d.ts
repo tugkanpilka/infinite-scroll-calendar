@@ -4,6 +4,7 @@ interface Props {
     className?: string;
     selected: boolean;
     today: boolean;
+    past: boolean;
     outside: boolean;
     indicator?: false | 'primary' | 'secondary';
     onSelect?: () => void;

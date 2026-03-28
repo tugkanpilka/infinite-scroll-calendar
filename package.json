@@ -26,7 +26,9 @@
     "build": "yarn build:types && yarn build:js",
     "build:js": "vite build --config vite.config.ts",
     "build:types": "tsc -p tsconfig.build.json",
-    "test": "vitest run src/root.test.tsx src/application/build-render-model.test.ts"
+    "test": "vitest run src/root.test.tsx src/application/build-render-model.test.ts",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
@@ -37,16 +39,26 @@
     "date-grid": "^0.0.1"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^5.1.1",
+    "@storybook/addon-a11y": "^10.3.3",
+    "@storybook/addon-docs": "^10.3.3",
+    "@storybook/addon-onboarding": "^10.3.3",
+    "@storybook/addon-vitest": "^10.3.3",
+    "@storybook/react-vite": "^10.3.3",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@types/node": "^24.5.2",
     "@types/react": "^19.0.11",
     "@types/react-dom": "^19.0.4",
+    "@vitest/browser": "3.2.4",
+    "@vitest/coverage-v8": "3.2.4",
     "jsdom": "^27.0.0",
+    "playwright": "^1.58.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sass": "^1.93.2",
+    "storybook": "^10.3.3",
     "typescript": "^5.9.3",
     "vite": "^7.1.7",
     "vitest": "^3.2.4"
