@@ -2,6 +2,7 @@ import type { CalendarCustomization, CalendarSection } from '../../../types';
 interface Props {
     sections: CalendarSection[];
     expanded: boolean;
+    monthSelected?: boolean;
     activeMonthKey?: string;
     scrolled?: boolean;
     onDaySelect?: (value: string) => void;

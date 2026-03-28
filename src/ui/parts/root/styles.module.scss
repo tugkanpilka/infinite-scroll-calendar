@@ -55,7 +55,7 @@
   gap: 0;
   font-family: var(--isc-font-family);
   background-color: transparent;
-  max-height: var(--isc-max-height, none);
+  min-height: 0;
   overflow-y: auto;
 }
 
