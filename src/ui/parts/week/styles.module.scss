@@ -42,7 +42,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
 }
 
 .label {
@@ -63,8 +62,12 @@
 }
 
 .indicator {
-  width: 0.28rem;
-  height: 0.28rem;
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
   border-radius: 999px;
   background: var(--isc-indicator-primary);
 }

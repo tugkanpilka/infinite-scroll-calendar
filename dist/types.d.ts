@@ -1,5 +1,5 @@
 import type { ComponentType, CSSProperties, ReactNode } from 'react';
-import type { Section, WeekNumberMeta } from 'date-grid';
+import type { FirstDayOfWeek, Section, WeekNumberMeta } from 'date-grid';
 export type CalendarValue = {
     kind: 'day';
     key: string;
@@ -113,6 +113,7 @@ export interface CalendarSlots {
 }
 export interface CalendarCustomization {
     classNames?: CalendarClassNames;
+    firstDayOfWeek?: FirstDayOfWeek;
     weekdayLabels?: string[];
     formatters?: CalendarFormatters;
     slots?: CalendarSlots;

@@ -57,28 +57,44 @@
   background-color: transparent;
   min-height: 0;
   overflow-y: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .toggle {
   position: sticky;
-  bottom: 0;
+  bottom: 4px;
   align-self: center;
   border: 0;
   background: transparent;
   cursor: pointer;
   padding: 0.5rem;
+  border-radius: 50%;
   color: var(--isc-text-secondary);
-  transition: color 120ms ease;
+  transition:
+    color 120ms ease,
+    background-color 120ms ease;
 
   svg {
     display: block;
     transition: transform 120ms ease;
   }
 
+  &[data-expanded='true'] {
+    background: var(--isc-toggle-bg, rgba(255, 255, 255, 0.85));
+    backdrop-filter: blur(8px);
+
+    @media (prefers-color-scheme: dark) {
+      background: var(--isc-toggle-bg, rgba(30, 30, 30, 0.85));
+    }
+  }
+
   &:hover {
     color: var(--isc-text-primary);
     background-color: var(--isc-hover-bg);
-    border-radius: 50%;
 
     svg {
       transform: scale(1.15);

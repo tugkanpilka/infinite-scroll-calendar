@@ -31,8 +31,8 @@ export default function Calendar(props: CalendarProps) {
   );
 
   const activeMonthKey = useMemo(
-    () => deriveActiveMonth(value),
-    [value],
+    () => deriveActiveMonth(value, customization?.firstDayOfWeek),
+    [value, customization?.firstDayOfWeek],
   );
 
   return (

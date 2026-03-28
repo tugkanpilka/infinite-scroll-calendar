@@ -76,10 +76,11 @@
 
 .indicator {
   position: absolute;
-  right: 4px;
-  bottom: 4px;
-  width: 0.28rem;
-  height: 0.28rem;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
   border-radius: 999px;
   background: var(--isc-indicator-primary);
 }

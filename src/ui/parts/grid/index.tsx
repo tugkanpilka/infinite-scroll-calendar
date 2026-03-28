@@ -12,6 +12,7 @@ import Day from '../day';
 import Month from '../month';
 import Week from '../week';
 import WeekdayHeader from '../weekday-header';
+import { getWeekdayLabels } from '../../weekday-labels';
 
 interface Props {
   sections: CalendarSection[];
@@ -24,8 +25,6 @@ interface Props {
   onMonthSelect?: (value: string) => void;
   customization?: CalendarCustomization;
 }
-
-const LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 function joinClassNames(...values: Array<string | undefined>) {
   return values.filter(Boolean).join(' ') || undefined;
@@ -130,7 +129,9 @@ export default function Grid(props: Props) {
   } = props;
 
   const weekdayLabels =
-    customization?.weekdayLabels?.length ? customization.weekdayLabels : LABELS;
+    customization?.weekdayLabels?.length
+      ? customization.weekdayLabels
+      : getWeekdayLabels(customization?.firstDayOfWeek);
   const WeekdayHeaderSlot = customization?.slots?.weekdayHeader;
   const DayNameSlot = customization?.slots?.dayName;
   const MonthSlot = customization?.slots?.month;

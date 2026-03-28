@@ -11,7 +11,9 @@ import {
 
 import Calendar from './root';
 
-function buildData() {
+import type { FirstDayOfWeek } from 'date-grid';
+
+function buildData(firstDayOfWeek?: FirstDayOfWeek) {
   return addWeekNumbers(
     splitRows(
       fillAdjacentDays(
@@ -21,6 +23,7 @@ function buildData() {
             end: new Date('2026-03-31T00:00:00.000Z'),
           }),
         ),
+        firstDayOfWeek != null ? { firstDayOfWeek } : undefined,
       ),
     ),
   );
@@ -28,7 +31,7 @@ function buildData() {
 
 describe('Calendar', () => {
   it('supports uncontrolled selection and expansion', () => {
-    render(
+    const { container } = render(
       <Calendar
         data={buildData()}
         defaultValue={{ kind: 'day', key: '2026-03-10' }}
@@ -36,10 +39,9 @@ describe('Calendar', () => {
       />,
     );
 
-    fireEvent.click(screen.getByRole('button', { name: 'Expand' }));
-    expect(
-      screen.getByRole('button', { name: 'Collapse' }),
-    ).toBeInTheDocument();
+    const toggleButton = container.querySelector('button[data-expanded]')!;
+    fireEvent.click(toggleButton);
+    expect(toggleButton).toHaveAttribute('data-expanded', 'true');
 
     const dayButtons = screen.getAllByRole('button', { name: '11' });
     const dayButton = dayButtons.find((btn) => btn.hasAttribute('data-outside'));
@@ -85,5 +87,23 @@ describe('Calendar', () => {
       kind: 'month',
       key: '2026-03',
     });
+  });
+
+  it('renders Sunday-start weekday labels when firstDayOfWeek is 0', () => {
+    const { container } = render(
+      <Calendar
+        data={buildData(0)}
+        defaultValue={{ kind: 'day', key: '2026-03-10' }}
+        expanded
+        customization={{ firstDayOfWeek: 0 }}
+      />,
+    );
+
+    // WeekdayHeader: <div><span>#</span><span>S</span><span>M</span>...
+    // Skip the first child (#) and collect day name spans
+    const headerDiv = container.querySelector('section > div');
+    const dayNameSpans = Array.from(headerDiv?.children ?? []).slice(1, 8);
+    const labels = dayNameSpans.map((el) => el.textContent);
+    expect(labels).toEqual(['S', 'M', 'T', 'W', 'T', 'F', 'S']);
   });
 });

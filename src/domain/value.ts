@@ -1,4 +1,5 @@
-import { format, startOfISOWeek, parseISO } from 'date-fns';
+import { format, startOfWeek, parseISO } from 'date-fns';
+import type { FirstDayOfWeek } from 'date-grid';
 
 import type { CalendarValue } from '../types';
 
@@ -20,12 +21,18 @@ export function isMonthValue(
   return value.kind === 'month';
 }
 
-export function deriveActiveMonth(value?: CalendarValue): string | undefined {
+export function deriveActiveMonth(
+  value?: CalendarValue,
+  firstDayOfWeek: FirstDayOfWeek = 1,
+): string | undefined {
   if (!value) return undefined;
   if (value.kind === 'month') return value.key;
   if (value.kind === 'day') return value.key.slice(0, 7);
   if (value.kind === 'week') {
-    return format(startOfISOWeek(parseISO(value.key)), 'yyyy-MM');
+    return format(
+      startOfWeek(parseISO(value.key), { weekStartsOn: firstDayOfWeek }),
+      'yyyy-MM',
+    );
   }
   return undefined;
 }

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import * as styles from './styles.module.scss';
 
 import type { CalendarPureProps } from '../../../types';
@@ -16,6 +17,23 @@ export default function Root(props: CalendarPureProps) {
     customization,
     style,
   } = props;
+
+  const rootRef = useRef<HTMLDivElement>(null);
+  const prevExpandedRef = useRef(model.expanded);
+
+  useEffect(() => {
+    const wasCollapsed = !prevExpandedRef.current;
+    prevExpandedRef.current = model.expanded;
+
+    if (!wasCollapsed || !model.expanded) return;
+
+    const timer = setTimeout(() => {
+      const selected = rootRef.current?.querySelector('[data-selected="true"]');
+      selected?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [model.expanded]);
 
   const ToggleSlot = customization?.slots?.toggle;
   const toggleLabel =
@@ -36,6 +54,7 @@ export default function Root(props: CalendarPureProps) {
 
   return (
     <div
+      ref={rootRef}
       className={[styles.root, customization?.classNames?.root]
         .filter(Boolean)
         .join(' ')}
@@ -68,6 +87,7 @@ export default function Root(props: CalendarPureProps) {
             className={[styles.toggle, customization?.classNames?.toggle]
               .filter(Boolean)
               .join(' ')}
+            data-expanded={!!model.expanded}
             onClick={() => onExpandedChange(!model.expanded)}
           >
             {toggleLabel}

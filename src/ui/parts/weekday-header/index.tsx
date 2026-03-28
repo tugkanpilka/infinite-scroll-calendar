@@ -3,8 +3,7 @@ import type { ReactNode } from 'react';
 import * as styles from './styles.module.scss';
 
 import DayName from '../day-name';
-
-const LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+import { getWeekdayLabels } from '../../weekday-labels';
 
 interface Props {
   labels?: ReactNode[];
@@ -14,7 +13,7 @@ interface Props {
 }
 
 export default function WeekdayHeader(props: Props) {
-  const { labels = LABELS, scrolled, className, dayNameClassName } = props;
+  const { labels = getWeekdayLabels(), scrolled, className, dayNameClassName } = props;
 
   return (
     <div className={[styles.root, className].filter(Boolean).join(' ')}>

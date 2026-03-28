@@ -1,6 +1,8 @@
 export { default as Calendar } from './root';
 export { default as CalendarPure } from './pure';
 
+export type { FirstDayOfWeek } from 'date-grid';
+
 export type {
   CalendarClassNameKey,
   CalendarClassNames,
