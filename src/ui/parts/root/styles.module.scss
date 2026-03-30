@@ -50,6 +50,7 @@
 }
 
 .root {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -65,9 +66,6 @@
 }
 
 .toggle {
-  position: sticky;
-  bottom: 4px;
-  align-self: center;
   border: 0;
   background: transparent;
   cursor: pointer;
@@ -83,7 +81,16 @@
     transition: transform 120ms ease;
   }
 
+  &[data-expanded='false'] {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+  }
+
   &[data-expanded='true'] {
+    position: sticky;
+    bottom: 4px;
+    align-self: center;
     background: var(--isc-toggle-bg, rgba(255, 255, 255, 0.85));
     backdrop-filter: blur(8px);
 
