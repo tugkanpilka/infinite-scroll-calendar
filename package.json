@@ -1,11 +1,29 @@
 {
   "name": "infinite-scroll-calendar",
   "version": "0.1.6",
-  "description": "Standalone React calendar package for Docbook",
+  "description": "React calendar component for month, week, and day selection with expandable rows and customization hooks.",
+  "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tugkanpilka/infinite-scroll-calendar.git"
+  },
+  "homepage": "https://github.com/tugkanpilka/infinite-scroll-calendar#readme",
+  "bugs": {
+    "url": "https://github.com/tugkanpilka/infinite-scroll-calendar/issues"
+  },
+  "keywords": [
+    "calendar",
+    "react",
+    "datepicker",
+    "date-grid",
+    "month-view",
+    "week-view",
+    "ui-component"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
