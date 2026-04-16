@@ -83,8 +83,8 @@ export interface CalendarMonthSlotProps {
     section: CalendarSection;
     label: ReactNode;
     isActive: boolean;
-    className?: string;
-    onSelect?: () => void;
+    selected: boolean;
+    indicator: CalendarIndicator;
 }
 export interface CalendarDayNameSlotProps {
     index: number;
