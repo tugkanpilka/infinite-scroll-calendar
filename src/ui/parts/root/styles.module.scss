@@ -69,7 +69,7 @@
   border: 0;
   background: transparent;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.3rem;
   border-radius: 50%;
   color: var(--isc-text-secondary);
   transition:
@@ -89,10 +89,16 @@
 
   &[data-expanded='true'] {
     position: sticky;
-    bottom: 4px;
+    bottom: 12px;
     align-self: center;
+    padding: 0.5rem;
     background: var(--isc-toggle-bg, rgba(255, 255, 255, 0.85));
     backdrop-filter: blur(8px);
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
 
     @media (prefers-color-scheme: dark) {
       background: var(--isc-toggle-bg, rgba(30, 30, 30, 0.85));
