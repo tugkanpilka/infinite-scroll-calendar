@@ -71,6 +71,7 @@
   font-family: var(--isc-font-family);
   font-size: 13px;
   line-height: 1;
+  font-feature-settings: 'tnum' 1;
   color: var(--isc-text-primary);
 }
 
@@ -79,8 +80,8 @@
   left: 50%;
   bottom: -4px;
   transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
   border-radius: 999px;
   background: var(--isc-indicator-primary);
 }
