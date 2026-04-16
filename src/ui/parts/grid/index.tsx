@@ -154,30 +154,33 @@ export default function Grid(props: Props) {
                 customization?.classNames?.section,
               )}
             >
-              {MonthSlot ? (
-                <MonthSlot
-                  section={section}
-                  label={
-                    customization?.formatters?.monthLabel?.(section) ??
-                    section.monthLabel
-                  }
-                  isActive={isActive}
-                  className={customization?.classNames?.month}
-                  onSelect={() => onMonthSelect?.(section.monthValue)}
-                />
-              ) : (
-                <Month
-                  label={
-                    customization?.formatters?.monthLabel?.(section) ??
-                    section.monthLabel
-                  }
-                  className={customization?.classNames?.month}
-                  selected={section.selected}
-                  isActive={isActive}
-                  indicator={section.indicator}
-                  onSelect={() => onMonthSelect?.(section.monthValue)}
-                />
-              )}
+              {(() => {
+                const monthLabel =
+                  customization?.formatters?.monthLabel?.(section) ??
+                  section.monthLabel;
+                return (
+                  <Month
+                    label={
+                      MonthSlot ? (
+                        <MonthSlot
+                          section={section}
+                          label={monthLabel}
+                          isActive={isActive}
+                          selected={section.selected}
+                          indicator={section.indicator}
+                        />
+                      ) : (
+                        monthLabel
+                      )
+                    }
+                    className={customization?.classNames?.month}
+                    selected={section.selected}
+                    isActive={isActive}
+                    indicator={section.indicator}
+                    onSelect={() => onMonthSelect?.(section.monthValue)}
+                  />
+                );
+              })()}
               {(!expanded || sectionIndex === 0) &&
                 (WeekdayHeaderSlot ? (
                   <WeekdayHeaderSlot
