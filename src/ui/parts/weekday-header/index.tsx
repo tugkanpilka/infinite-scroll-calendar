@@ -8,15 +8,25 @@ import { getWeekdayLabels } from '../../weekday-labels';
 interface Props {
   labels?: ReactNode[];
   scrolled?: boolean;
+  expanded?: boolean;
   className?: string;
   dayNameClassName?: string;
 }
 
 export default function WeekdayHeader(props: Props) {
-  const { labels = getWeekdayLabels(), scrolled, className, dayNameClassName } = props;
+  const {
+    labels = getWeekdayLabels(),
+    scrolled,
+    expanded,
+    className,
+    dayNameClassName,
+  } = props;
 
   return (
-    <div className={[styles.root, className].filter(Boolean).join(' ')}>
+    <div
+      className={[styles.root, className].filter(Boolean).join(' ')}
+      data-expanded={!!expanded}
+    >
       <span className={styles.weekNumberMarker}>#</span>
       {labels.map((label, index) => (
         <DayName

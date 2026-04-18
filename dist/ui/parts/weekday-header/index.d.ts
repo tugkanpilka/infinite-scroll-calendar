@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 interface Props {
     labels?: ReactNode[];
     scrolled?: boolean;
+    expanded?: boolean;
     className?: string;
     dayNameClassName?: string;
 }

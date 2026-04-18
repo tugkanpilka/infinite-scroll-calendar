@@ -53,7 +53,7 @@ function Tr() {
       // with.
       e.$$typeof === le || e.getModuleId !== void 0));
     }
-    function Xe(e, r, a) {
+    function ze(e, r, a) {
       var u = e.displayName;
       if (u)
         return u;
@@ -93,7 +93,7 @@ function Tr() {
             var a = e;
             return ce(a._context) + ".Provider";
           case p:
-            return Xe(e, e.render, "ForwardRef");
+            return ze(e, e.render, "ForwardRef");
           case b:
             var u = e.displayName || null;
             return u !== null ? u : P(e.type) || "Memo";
@@ -112,7 +112,7 @@ function Tr() {
     function he() {
     }
     he.__reactDisabledLog = !0;
-    function Ze() {
+    function Xe() {
       {
         if (M === 0) {
           ue = console.log, de = console.info, fe = console.warn, ve = console.error, pe = console.group, me = console.groupCollapsed, ye = console.groupEnd;
@@ -135,7 +135,7 @@ function Tr() {
         M++;
       }
     }
-    function ze() {
+    function Ze() {
       {
         if (M--, M === 0) {
           var e = {
@@ -184,13 +184,13 @@ function Tr() {
 ` + G + e;
       }
     }
-    var X = !1, U;
+    var z = !1, U;
     {
       var Qe = typeof WeakMap == "function" ? WeakMap : Map;
       U = new Qe();
     }
     function be(e, r) {
-      if (!e || X)
+      if (!e || z)
         return "";
       {
         var a = U.get(e);
@@ -198,11 +198,11 @@ function Tr() {
           return a;
       }
       var u;
-      X = !0;
+      z = !0;
       var h = Error.prepareStackTrace;
       Error.prepareStackTrace = void 0;
       var k;
-      k = H.current, H.current = null, Ze();
+      k = H.current, H.current = null, Xe();
       try {
         if (r) {
           var y = function() {
@@ -255,7 +255,7 @@ function Tr() {
             }
         }
       } finally {
-        X = !1, H.current = k, ze(), Error.prepareStackTrace = h;
+        z = !1, H.current = k, Ze(), Error.prepareStackTrace = h;
       }
       var I = e ? e.displayName || e.name : "", L = I ? B(I) : "";
       return typeof e == "function" && U.set(e, L), L;
@@ -324,7 +324,7 @@ function Tr() {
       }
     }
     var nr = Array.isArray;
-    function Z(e) {
+    function X(e) {
       return nr(e);
     }
     function ar(e) {
@@ -441,7 +441,7 @@ function Tr() {
         return fr(e, m, N, h, u, Re.current, y);
       }
     }
-    var z = C.ReactCurrentOwner, we = C.ReactDebugCurrentFrame;
+    var Z = C.ReactCurrentOwner, we = C.ReactDebugCurrentFrame;
     function A(e) {
       if (e) {
         var r = e._owner, a = K(e.type, e._source, r ? r.type : null);
@@ -456,8 +456,8 @@ function Tr() {
     }
     function Se() {
       {
-        if (z.current) {
-          var e = P(z.current.type);
+        if (Z.current) {
+          var e = P(Z.current.type);
           if (e)
             return `
 
@@ -492,14 +492,14 @@ Check the top-level render call using <` + a + ">.");
           return;
         Ne[a] = !0;
         var u = "";
-        e && e._owner && e._owner !== z.current && (u = " It was passed a child from " + P(e._owner.type) + "."), A(e), x('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', a, u), A(null);
+        e && e._owner && e._owner !== Z.current && (u = " It was passed a child from " + P(e._owner.type) + "."), A(e), x('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', a, u), A(null);
       }
     }
     function Ce(e, r) {
       {
         if (typeof e != "object")
           return;
-        if (Z(e))
+        if (X(e))
           for (var a = 0; a < e.length; a++) {
             var u = e[a];
             ee(u) && Te(u, r);
@@ -561,7 +561,7 @@ Check the top-level render call using <` + a + ">.");
           var N = pr();
           N ? m += N : m += Se();
           var R;
-          e === null ? R = "null" : Z(e) ? R = "array" : e !== void 0 && e.$$typeof === n ? (R = "<" + (P(e.type) || "Unknown") + " />", m = " Did you accidentally export a JSX literal instead of a component?") : R = typeof e, x("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", R, m);
+          e === null ? R = "null" : X(e) ? R = "array" : e !== void 0 && e.$$typeof === n ? (R = "<" + (P(e.type) || "Unknown") + " />", m = " Did you accidentally export a JSX literal instead of a component?") : R = typeof e, x("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", R, m);
         }
         var E = vr(e, r, a, h, k);
         if (E == null)
@@ -570,7 +570,7 @@ Check the top-level render call using <` + a + ">.");
           var O = r.children;
           if (O !== void 0)
             if (u)
-              if (Z(O)) {
+              if (X(O)) {
                 for (var I = 0; I < O.length; I++)
                   Ce(O[I], e);
                 Object.freeze && Object.freeze(O);
@@ -818,7 +818,7 @@ function Hr(t) {
     }
   );
 }
-const Gr = "_root_qhek3_1", Xr = "_chevron_qhek3_22", Zr = "_title_qhek3_37", zr = "_indicator_qhek3_55";
+const Gr = "_root_qhek3_1", zr = "_chevron_qhek3_22", Xr = "_title_qhek3_37", Zr = "_indicator_qhek3_55";
 function Qr(t) {
   const { label: n, className: i, selected: c, isActive: o, indicator: d, onSelect: s } = t;
   return /* @__PURE__ */ f.jsxs(
@@ -831,12 +831,12 @@ function Qr(t) {
       "data-active": o,
       onClick: s,
       children: [
-        /* @__PURE__ */ f.jsx("span", { className: Zr, children: n }),
-        d && /* @__PURE__ */ f.jsx("span", { className: zr, "data-indicator": d }),
+        /* @__PURE__ */ f.jsx("span", { className: Xr, children: n }),
+        d && /* @__PURE__ */ f.jsx("span", { className: Zr, "data-indicator": d }),
         /* @__PURE__ */ f.jsx(
           "svg",
           {
-            className: Xr,
+            className: zr,
             viewBox: "0 0 16 16",
             fill: "none",
             stroke: "currentColor",
@@ -867,7 +867,7 @@ function at(t) {
     }
   );
 }
-const ot = "_root_1ckvi_1", st = "_weekNumberMarker_1ckvi_22", it = "_border_1ckvi_33", lt = "_root_1ocjv_1";
+const ot = "_root_1auzu_1", st = "_weekNumberMarker_1auzu_18", it = "_border_1auzu_44", lt = "_root_1ocjv_1";
 function ct({ label: t, className: n }) {
   return /* @__PURE__ */ f.jsx("span", { className: [lt, n].filter(Boolean).join(" "), children: t });
 }
@@ -880,19 +880,32 @@ function Be(t = 1) {
   ];
 }
 function ut(t) {
-  const { labels: n = Be(), scrolled: i, className: c, dayNameClassName: o } = t;
-  return /* @__PURE__ */ f.jsxs("div", { className: [ot, c].filter(Boolean).join(" "), children: [
-    /* @__PURE__ */ f.jsx("span", { className: st, children: "#" }),
-    n.map((d, s) => /* @__PURE__ */ f.jsx(
-      ct,
-      {
-        label: d,
-        className: o
-      },
-      `weekday-${s}`
-    )),
-    /* @__PURE__ */ f.jsx("div", { className: it, "data-visible": !!i })
-  ] });
+  const {
+    labels: n = Be(),
+    scrolled: i,
+    expanded: c,
+    className: o,
+    dayNameClassName: d
+  } = t;
+  return /* @__PURE__ */ f.jsxs(
+    "div",
+    {
+      className: [ot, o].filter(Boolean).join(" "),
+      "data-expanded": !!c,
+      children: [
+        /* @__PURE__ */ f.jsx("span", { className: st, children: "#" }),
+        n.map((s, v) => /* @__PURE__ */ f.jsx(
+          ct,
+          {
+            label: s,
+            className: d
+          },
+          `weekday-${v}`
+        )),
+        /* @__PURE__ */ f.jsx("div", { className: it, "data-visible": !!i })
+      ]
+    }
+  );
 }
 function ie(...t) {
   return t.filter(Boolean).join(" ") || void 0;
@@ -1023,6 +1036,7 @@ function ft(t) {
                     ) : x
                   ),
                   scrolled: d,
+                  expanded: i,
                   className: l?.classNames?.weekdayHeader,
                   dayNameClassName: w
                 }
@@ -1031,6 +1045,7 @@ function ft(t) {
                 {
                   labels: _,
                   scrolled: d,
+                  expanded: i,
                   className: l?.classNames?.weekdayHeader,
                   dayNameClassName: w
                 }

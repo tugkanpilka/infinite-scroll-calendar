@@ -8,6 +8,17 @@
   position: relative;
 }
 
+.root[data-expanded='false'] {
+  min-height: 16px;
+  padding-bottom: 0;
+  margin-bottom: -2px;
+}
+
+.root[data-expanded='false'] .dayName,
+.root[data-expanded='false'] .weekNumberMarker {
+  min-height: 16px;
+}
+
 .dayName {
   display: flex;
   align-items: center;

@@ -197,6 +197,7 @@ export default function Grid(props: Props) {
                       ),
                     )}
                     scrolled={scrolled}
+                    expanded={expanded}
                     className={customization?.classNames?.weekdayHeader}
                     dayNameClassName={dayNameClassName}
                   />
@@ -204,6 +205,7 @@ export default function Grid(props: Props) {
                   <WeekdayHeader
                     labels={weekdayLabels}
                     scrolled={scrolled}
+                    expanded={expanded}
                     className={customization?.classNames?.weekdayHeader}
                     dayNameClassName={dayNameClassName}
                   />

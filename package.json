@@ -1,6 +1,6 @@
 {
   "name": "infinite-scroll-calendar",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "React calendar component for month, week, and day selection with expandable rows and customization hooks.",
   "license": "MIT",
   "type": "module",
