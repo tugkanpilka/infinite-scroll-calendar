@@ -1,7 +1,7 @@
 .root {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: var(--isc-month-label-gap);
   padding: var(--isc-month-label-pad-y) var(--isc-month-label-pad-end)
     var(--isc-month-label-pad-y) var(--isc-month-label-offset);
   margin: 0;
@@ -45,7 +45,7 @@
 .chevron {
   width: 8px;
   height: 8px;
-  margin-left: 4px;
+  margin-left: var(--isc-month-chevron-margin-start);
   color: var(--isc-text-secondary);
   opacity: 0.4;
   transition:
@@ -58,7 +58,7 @@
   height: 5px;
   border-radius: 999px;
   background: var(--isc-indicator-primary);
-  margin-left: 4px;
+  margin-left: var(--isc-month-indicator-margin-start);
 }
 
 .indicator[data-indicator='secondary'] {
