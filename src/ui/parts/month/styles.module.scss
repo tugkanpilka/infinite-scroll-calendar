@@ -2,8 +2,9 @@
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  padding: 4px 8px 4px 0;
-  margin-left: 4px;
+  padding: var(--isc-month-label-pad-y) var(--isc-month-label-pad-end)
+    var(--isc-month-label-pad-y) var(--isc-month-label-offset);
+  margin: 0;
   border: 0;
   border-radius: 6px;
   background: transparent;
@@ -39,8 +40,6 @@
   font-size: 15px;
   letter-spacing: -0.01em;
   color: var(--isc-text-primary);
-  margin-left: 8px;
-  padding-bottom: 4px;
 }
 
 .chevron {

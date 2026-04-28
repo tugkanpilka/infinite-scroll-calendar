@@ -12,10 +12,34 @@
 
   --isc-cell-size: 38px;
   --isc-day-marker-size: 23px;
-  --isc-week-col-width: 22px;
+  // Use a grid track value (1fr) so the week column matches a day column by
+  // default. Override with a fixed px value to get a narrow week column back.
+  --isc-week-col-width: minmax(0, 1fr);
   --isc-day-radius: 50%;
   --isc-row-gap: 0;
-  --isc-section-radius: 0.75rem;
+  --isc-section-radius: 12px;
+
+  // Spacing tokens — defaults are zero so the calendar embeds flush with its
+  // container. Consumers opt in to internal breathing room by overriding these.
+  --isc-row-padding-x: 0px;
+  --isc-section-pad-top: 0px;
+  --isc-section-pad-bottom: 0px;
+  --isc-section-gap: 0px;
+  --isc-month-label-offset: var(--isc-row-padding-x);
+  --isc-month-label-pad-y: 0px;
+  --isc-month-label-pad-end: 0px;
+  --isc-weekday-header-pad-bottom: 0px;
+  --isc-weekday-header-pad-bottom-collapsed: 0px;
+  --isc-weekday-header-margin-bottom-collapsed: 0px;
+  --isc-day-indicator-offset: -4px;
+  --isc-week-indicator-offset: -10px;
+  --isc-week-bleed-start: 0px;
+  --isc-week-bleed-end: 0px;
+  --isc-toggle-pad: 5px;
+  --isc-toggle-pad-expanded: 8px;
+  --isc-toggle-top: 4px;
+  --isc-toggle-right: 6px;
+  --isc-toggle-bottom: 12px;
 
   --isc-hover-bg: rgba(30, 27, 24, 0.08);
   --isc-row-hover-bg: rgba(30, 27, 24, 0.06);
@@ -69,7 +93,7 @@
   border: 0;
   background: transparent;
   cursor: pointer;
-  padding: 0.3rem;
+  padding: var(--isc-toggle-pad);
   border-radius: 50%;
   color: var(--isc-text-secondary);
   transition:
@@ -83,15 +107,15 @@
 
   &[data-expanded='false'] {
     position: absolute;
-    top: 4px;
-    right: 6px;
+    top: var(--isc-toggle-top);
+    right: var(--isc-toggle-right);
   }
 
   &[data-expanded='true'] {
     position: sticky;
-    bottom: 12px;
+    bottom: var(--isc-toggle-bottom);
     align-self: center;
-    padding: 0.5rem;
+    padding: var(--isc-toggle-pad-expanded);
     background: var(--isc-toggle-bg, rgba(255, 255, 255, 0.85));
     backdrop-filter: blur(8px);
 

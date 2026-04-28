@@ -3,15 +3,15 @@
   grid-template-columns: var(--isc-week-col-width) repeat(7, 1fr);
   align-items: center;
   min-height: 24px;
-  margin: 0 6px;
-  padding-bottom: 4px;
+  padding: 0 var(--isc-row-padding-x) var(--isc-weekday-header-pad-bottom);
+  margin: 0;
   position: relative;
 }
 
 .root[data-expanded='false'] {
   min-height: 16px;
-  padding-bottom: 0;
-  margin-bottom: -2px;
+  padding-bottom: var(--isc-weekday-header-pad-bottom-collapsed);
+  margin-bottom: var(--isc-weekday-header-margin-bottom-collapsed);
 }
 
 .root[data-expanded='false'] .dayName,

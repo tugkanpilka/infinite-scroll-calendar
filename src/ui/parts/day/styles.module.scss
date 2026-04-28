@@ -78,7 +78,7 @@
 .indicator {
   position: absolute;
   left: 50%;
-  bottom: -4px;
+  bottom: var(--isc-day-indicator-offset);
   transform: translateX(-50%);
   width: 4px;
   height: 4px;
