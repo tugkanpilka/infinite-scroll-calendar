@@ -1,5 +1,10 @@
 # infinite-scroll-calendar
 
+[![npm version](https://img.shields.io/npm/v/infinite-scroll-calendar.svg)](https://www.npmjs.com/package/infinite-scroll-calendar)
+[![npm downloads](https://img.shields.io/npm/dm/infinite-scroll-calendar.svg)](https://www.npmjs.com/package/infinite-scroll-calendar)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/infinite-scroll-calendar)](https://bundlephobia.com/package/infinite-scroll-calendar)
+[![license](https://img.shields.io/npm/l/infinite-scroll-calendar.svg)](./LICENSE)
+
 A React calendar component for month, week, and day selection with expandable rows, sticky weekday headers, and lightweight customization hooks.
 
 Built on top of [`date-grid`](https://www.npmjs.com/package/date-grid), `infinite-scroll-calendar` is designed for product UIs that need a navigable calendar surface without dragging in a full scheduling framework.
