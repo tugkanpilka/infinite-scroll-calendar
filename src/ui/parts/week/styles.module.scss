@@ -15,8 +15,8 @@
 .root::before {
   content: '';
   position: absolute;
-  top: 1px;
-  bottom: 1px;
+  top: var(--isc-week-hover-inset-y);
+  bottom: var(--isc-week-hover-inset-y);
   left: calc(var(--isc-week-bleed-start) * -1);
   width: calc(100cqw + var(--isc-week-bleed-end));
   border-radius: 12px;
