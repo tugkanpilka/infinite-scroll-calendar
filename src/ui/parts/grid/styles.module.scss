@@ -6,8 +6,8 @@
 
 .section {
   position: relative;
-  margin-bottom: 4px;
-  padding: 0.125rem 0 0.35rem;
+  margin-bottom: var(--isc-section-gap);
+  padding: var(--isc-section-pad-top) 0 var(--isc-section-pad-bottom);
   border-radius: var(--isc-section-radius);
   transition: background-color 150ms ease;
 }
@@ -22,7 +22,7 @@
   display: grid;
   grid-template-columns: var(--isc-week-col-width) repeat(7, minmax(0, 1fr));
   row-gap: var(--isc-row-gap);
-  padding: 0 6px;
+  padding: 0 var(--isc-row-padding-x);
   overflow: hidden;
   container-type: inline-size;
 }

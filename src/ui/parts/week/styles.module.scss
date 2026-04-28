@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  width: var(--isc-week-col-width);
+  width: 100%;
   height: var(--isc-cell-size);
   padding: 0;
   border: 0;
@@ -17,8 +17,8 @@
   position: absolute;
   top: 1px;
   bottom: 1px;
-  left: -4px;
-  width: calc(100cqw + 11px);
+  left: calc(var(--isc-week-bleed-start) * -1);
+  width: calc(100cqw + var(--isc-week-bleed-end));
   border-radius: 12px;
   opacity: 0;
   pointer-events: none;
@@ -65,7 +65,7 @@
 .indicator {
   position: absolute;
   left: 50%;
-  bottom: -10px;
+  bottom: var(--isc-week-indicator-offset);
   transform: translateX(-50%);
   width: 4px;
   height: 4px;
